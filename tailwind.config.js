@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Inter', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        logo: ['Raleway', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        logo: ['var(--font-raleway)', 'system-ui', 'sans-serif'],
       },
       colors: {
         blue: '#2583FF',
