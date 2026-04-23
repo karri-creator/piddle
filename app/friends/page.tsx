@@ -34,7 +34,7 @@ export default function FriendsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2 uppercase tracking-wide">
             Your Squad
           </h1>
           <p className="text-white/70 font-body">
@@ -95,7 +95,7 @@ export default function FriendsPage() {
                     <div className="w-10 h-10 rounded-full bg-white text-[var(--color-primary)] flex items-center justify-center font-heading font-bold">
                       {friend.name.charAt(0).toUpperCase()}
                     </div>
-                    <h3 className="text-xl font-heading font-bold text-white">{friend.name}</h3>
+                    <h3 className="text-xl font-heading font-bold text-white uppercase tracking-wide">{friend.name}</h3>
                   </div>
                   
                   {friend.streaks.length === 0 ? (

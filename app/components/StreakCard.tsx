@@ -33,7 +33,7 @@ export default function StreakCard({ streak, onCheck, showCheerButton, onCheer }
         <div className="flex items-center gap-3">
           <span className="text-3xl">{streak.icon}</span>
           <div>
-            <h3 className="text-lg font-heading font-bold text-white">{streak.name}</h3>
+            <h3 className="text-lg font-heading font-bold text-white uppercase tracking-wide">{streak.name}</h3>
             <p className="text-xs text-white/50 font-body uppercase tracking-wide">{streak.category}</p>
           </div>
         </div>

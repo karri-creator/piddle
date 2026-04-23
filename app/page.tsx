@@ -96,7 +96,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2 uppercase tracking-wide">
             Build Your Streak
           </h1>
           <p className="text-white/70 font-body">
@@ -206,7 +206,7 @@ export default function Home() {
 
         {/* Active Streaks */}
         <div>
-          <h2 className="text-2xl font-heading font-bold mb-6 text-white flex items-center gap-2">
+          <h2 className="text-2xl font-heading font-bold mb-6 text-white flex items-center gap-2 uppercase tracking-wide">
             <span className="flame-animate">🔥</span>
             Active Streaks
           </h2>
