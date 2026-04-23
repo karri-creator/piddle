@@ -78,17 +78,6 @@ module.exports = require("next/dist/compiled/next-server/app-page.runtime.dev.js
 
 /***/ }),
 
-/***/ "path":
-/*!***********************!*\
-  !*** external "path" ***!
-  \***********************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("path");
-
-/***/ }),
-
 /***/ "url":
 /*!**********************!*\
   !*** external "url" ***!
@@ -97,17 +86,6 @@ module.exports = require("path");
 
 "use strict";
 module.exports = require("url");
-
-/***/ }),
-
-/***/ "util":
-/*!***********************!*\
-  !*** external "util" ***!
-  \***********************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("util");
 
 /***/ }),
 
@@ -170,7 +148,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Logo)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/image */ \"(ssr)/./node_modules/next/image.js\");\n/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction Logo({ variant = \"header\" }) {\n    const isHero = variant === \"hero\";\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"inline-flex flex-col items-center\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {\n                src: \"/images/piddle-logo.png\",\n                alt: \"Piddle\",\n                width: isHero ? 400 : 140,\n                height: isHero ? 120 : 42,\n                className: isHero ? \"w-[280px] md:w-[400px] h-auto\" : \"w-[140px] h-auto\",\n                priority: true\n            }, void 0, false, {\n                fileName: \"/vercel/share/v0-project/app/components/Logo.tsx\",\n                lineNumber: 8,\n                columnNumber: 7\n            }, this),\n            isHero && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: \"text-white/80 text-sm md:text-base font-body mt-2 tracking-wide\",\n                children: \"Stop piddling around. Start building streaks.\"\n            }, void 0, false, {\n                fileName: \"/vercel/share/v0-project/app/components/Logo.tsx\",\n                lineNumber: 17,\n                columnNumber: 9\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/vercel/share/v0-project/app/components/Logo.tsx\",\n        lineNumber: 7,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9hcHAvY29tcG9uZW50cy9Mb2dvLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBK0I7QUFFaEIsU0FBU0MsS0FBSyxFQUFFQyxVQUFVLFFBQVEsRUFBbUM7SUFDbEYsTUFBTUMsU0FBU0QsWUFBWTtJQUUzQixxQkFDRSw4REFBQ0U7UUFBSUMsV0FBVTs7MEJBQ2IsOERBQUNMLG1EQUFLQTtnQkFDSk0sS0FBSTtnQkFDSkMsS0FBSTtnQkFDSkMsT0FBT0wsU0FBUyxNQUFNO2dCQUN0Qk0sUUFBUU4sU0FBUyxNQUFNO2dCQUN2QkUsV0FBV0YsU0FBUyxrQ0FBa0M7Z0JBQ3RETyxRQUFROzs7Ozs7WUFFVFAsd0JBQ0MsOERBQUNRO2dCQUFFTixXQUFVOzBCQUFrRTs7Ozs7Ozs7Ozs7O0FBTXZGIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vYWNjbGFpbS1hcHAvLi9hcHAvY29tcG9uZW50cy9Mb2dvLnRzeD9mMTgxIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBJbWFnZSBmcm9tICduZXh0L2ltYWdlJztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTG9nbyh7IHZhcmlhbnQgPSAnaGVhZGVyJyB9OiB7IHZhcmlhbnQ/OiAnaGVhZGVyJyB8ICdoZXJvJyB9KSB7XG4gIGNvbnN0IGlzSGVybyA9IHZhcmlhbnQgPT09ICdoZXJvJztcbiAgXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBmbGV4LWNvbCBpdGVtcy1jZW50ZXJcIj5cbiAgICAgIDxJbWFnZSBcbiAgICAgICAgc3JjPVwiL2ltYWdlcy9waWRkbGUtbG9nby5wbmdcIlxuICAgICAgICBhbHQ9XCJQaWRkbGVcIlxuICAgICAgICB3aWR0aD17aXNIZXJvID8gNDAwIDogMTQwfVxuICAgICAgICBoZWlnaHQ9e2lzSGVybyA/IDEyMCA6IDQyfVxuICAgICAgICBjbGFzc05hbWU9e2lzSGVybyA/ICd3LVsyODBweF0gbWQ6dy1bNDAwcHhdIGgtYXV0bycgOiAndy1bMTQwcHhdIGgtYXV0byd9XG4gICAgICAgIHByaW9yaXR5XG4gICAgICAvPlxuICAgICAge2lzSGVybyAmJiAoXG4gICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGUvODAgdGV4dC1zbSBtZDp0ZXh0LWJhc2UgZm9udC1ib2R5IG10LTIgdHJhY2tpbmctd2lkZVwiPlxuICAgICAgICAgIFN0b3AgcGlkZGxpbmcgYXJvdW5kLiBTdGFydCBidWlsZGluZyBzdHJlYWtzLlxuICAgICAgICA8L3A+XG4gICAgICApfVxuICAgIDwvZGl2PlxuICApO1xufVxuIl0sIm5hbWVzIjpbIkltYWdlIiwiTG9nbyIsInZhcmlhbnQiLCJpc0hlcm8iLCJkaXYiLCJjbGFzc05hbWUiLCJzcmMiLCJhbHQiLCJ3aWR0aCIsImhlaWdodCIsInByaW9yaXR5IiwicCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./app/components/Logo.tsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Logo)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction Logo({ variant = \"header\" }) {\n    const isHero = variant === \"hero\";\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"inline-flex flex-col items-center\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                className: `font-logo text-black ${isHero ? \"text-6xl md:text-8xl\" : \"text-3xl\"}`,\n                children: \"piddle\"\n            }, void 0, false, {\n                fileName: \"/vercel/share/v0-project/app/components/Logo.tsx\",\n                lineNumber: 6,\n                columnNumber: 7\n            }, this),\n            isHero && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"p\", {\n                className: \"text-white/80 text-sm md:text-base font-body mt-2 tracking-wide\",\n                children: \"Stop piddling around. Start building streaks.\"\n            }, void 0, false, {\n                fileName: \"/vercel/share/v0-project/app/components/Logo.tsx\",\n                lineNumber: 12,\n                columnNumber: 9\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"/vercel/share/v0-project/app/components/Logo.tsx\",\n        lineNumber: 5,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9hcHAvY29tcG9uZW50cy9Mb2dvLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQWUsU0FBU0EsS0FBSyxFQUFFQyxVQUFVLFFBQVEsRUFBbUM7SUFDbEYsTUFBTUMsU0FBU0QsWUFBWTtJQUUzQixxQkFDRSw4REFBQ0U7UUFBSUMsV0FBVTs7MEJBQ2IsOERBQUNDO2dCQUNDRCxXQUFXLENBQUMscUJBQXFCLEVBQUVGLFNBQVMseUJBQXlCLFdBQVcsQ0FBQzswQkFDbEY7Ozs7OztZQUdBQSx3QkFDQyw4REFBQ0k7Z0JBQUVGLFdBQVU7MEJBQWtFOzs7Ozs7Ozs7Ozs7QUFNdkYiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9hY2NsYWltLWFwcC8uL2FwcC9jb21wb25lbnRzL0xvZ28udHN4P2YxODEiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gTG9nbyh7IHZhcmlhbnQgPSAnaGVhZGVyJyB9OiB7IHZhcmlhbnQ/OiAnaGVhZGVyJyB8ICdoZXJvJyB9KSB7XG4gIGNvbnN0IGlzSGVybyA9IHZhcmlhbnQgPT09ICdoZXJvJztcbiAgXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBmbGV4LWNvbCBpdGVtcy1jZW50ZXJcIj5cbiAgICAgIDxzcGFuIFxuICAgICAgICBjbGFzc05hbWU9e2Bmb250LWxvZ28gdGV4dC1ibGFjayAke2lzSGVybyA/ICd0ZXh0LTZ4bCBtZDp0ZXh0LTh4bCcgOiAndGV4dC0zeGwnfWB9XG4gICAgICA+XG4gICAgICAgIHBpZGRsZVxuICAgICAgPC9zcGFuPlxuICAgICAge2lzSGVybyAmJiAoXG4gICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtd2hpdGUvODAgdGV4dC1zbSBtZDp0ZXh0LWJhc2UgZm9udC1ib2R5IG10LTIgdHJhY2tpbmctd2lkZVwiPlxuICAgICAgICAgIFN0b3AgcGlkZGxpbmcgYXJvdW5kLiBTdGFydCBidWlsZGluZyBzdHJlYWtzLlxuICAgICAgICA8L3A+XG4gICAgICApfVxuICAgIDwvZGl2PlxuICApO1xufVxuIl0sIm5hbWVzIjpbIkxvZ28iLCJ2YXJpYW50IiwiaXNIZXJvIiwiZGl2IiwiY2xhc3NOYW1lIiwic3BhbiIsInAiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./app/components/Logo.tsx\n");
 
 /***/ }),
 
@@ -214,7 +192,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"baba58d536fe\");\nif (false) {}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvZ2xvYmFscy5jc3MiLCJtYXBwaW5ncyI6Ijs7OztBQUFBLGlFQUFlLGNBQWM7QUFDN0IsSUFBSSxLQUFVLEVBQUUsRUFBdUIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9hY2NsYWltLWFwcC8uL2FwcC9nbG9iYWxzLmNzcz8xMjg0Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IFwiYmFiYTU4ZDUzNmZlXCJcbmlmIChtb2R1bGUuaG90KSB7IG1vZHVsZS5ob3QuYWNjZXB0KCkgfVxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./app/globals.css\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"823581ff426c\");\nif (false) {}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvZ2xvYmFscy5jc3MiLCJtYXBwaW5ncyI6Ijs7OztBQUFBLGlFQUFlLGNBQWM7QUFDN0IsSUFBSSxLQUFVLEVBQUUsRUFBdUIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9hY2NsYWltLWFwcC8uL2FwcC9nbG9iYWxzLmNzcz8xMjg0Il0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IFwiODIzNTgxZmY0MjZjXCJcbmlmIChtb2R1bGUuaG90KSB7IG1vZHVsZS5ob3QuYWNjZXB0KCkgfVxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./app/globals.css\n");
 
 /***/ }),
 
