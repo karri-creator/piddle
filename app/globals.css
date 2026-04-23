@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #6F0400;
+  --color-hero: #FF3F35;
+  --color-secondary: #000000;
+  --color-neutral: #111111;
+  --color-surface: #FFFFFF;
+  --color-accent: #F5F5F5;
+  --color-success: #FFFFFF;
+  --color-warning: #FFFFFF;
+  --color-error: #FFFFFF;
+}
+
+.font-heading {
+  font-family: var(--font-heading), 'Fredoka One', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), 'Nunito', system-ui, sans-serif;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-surface);
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+@keyframes pulse-red {
+  0%, 100% { background-color: rgba(255, 255, 255, 0.08); }
+  50% { background-color: rgba(255, 255, 255, 0.14); }
+}
+
+.pulse-red {
+  animation: pulse-red 2s infinite;
+}
+
+.styled-flame {
+  background: linear-gradient(45deg, #FF3F35, #FF8A80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(255, 63, 53, 0.3));
+}
