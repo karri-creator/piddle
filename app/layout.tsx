@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import Header from './components/Header'
 
 export const metadata: Metadata = {
-  title: 'Piddle - Stop Piddling Around',
-  description: 'Build streaks, stay accountable, and crush your goals with friends. The gamified habit tracker that makes consistency fun.',
+  title: 'Piddle - Small Efforts, Big Streaks',
+  description: 'Keep on track, cheer each other on, and get nudged gently when you need it. Build consistency with Piddle.',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#A02122',
+  themeColor: '#2583FF',
   width: 'device-width',
   initialScale: 1,
 }
@@ -19,9 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-[var(--color-bg)]">
-      <body className="font-body bg-[var(--color-bg)] text-white antialiased">
-        <Header />
+    <html lang="en" className="bg-cream">
+      <body className="font-body bg-cream text-charcoal antialiased">
         {children}
       </body>
     </html>

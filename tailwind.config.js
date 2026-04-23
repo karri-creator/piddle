@@ -8,11 +8,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Raleway', 'system-ui', 'sans-serif'],
-        body: ['Nunito', 'system-ui', 'sans-serif'],
+        heading: ['Inter', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        logo: ['Raleway', 'system-ui', 'sans-serif'],
       },
       colors: {
-        primary: '#A02122',
+        blue: '#2583FF',
+        coral: '#FF6B6B',
+        sunshine: '#FFD64D',
+        cream: '#FFF7EE',
+        charcoal: '#1A1A1A',
       },
     },
   },

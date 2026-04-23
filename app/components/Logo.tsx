@@ -2,15 +2,15 @@ export default function Logo({ variant = 'header' }: { variant?: 'header' | 'her
   const isHero = variant === 'hero';
   
   return (
-    <div className="inline-flex flex-col items-center">
+    <div className="inline-flex flex-col items-start">
       <span 
-        className={`font-logo text-black ${isHero ? 'text-6xl md:text-8xl' : 'text-3xl'}`}
+        className={`font-logo text-charcoal ${isHero ? 'text-5xl md:text-6xl' : 'text-2xl'}`}
       >
         piddle
       </span>
       {isHero && (
-        <p className="text-white/80 text-sm md:text-base font-body mt-2 tracking-wide">
-          Stop piddling around. Start building streaks.
+        <p className="text-charcoal/70 text-base font-body mt-1">
+          small efforts. <span className="text-blue font-semibold">big streaks.</span>
         </p>
       )}
     </div>

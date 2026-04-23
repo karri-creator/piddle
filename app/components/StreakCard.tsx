@@ -2,6 +2,8 @@
 
 import { Streak } from '../types/streak';
 import { motion } from 'framer-motion';
+import WeekTracker from './WeekTracker';
+import { Zap } from 'lucide-react';
 
 interface Props {
   streak: Streak;
@@ -17,91 +19,85 @@ export default function StreakCard({ streak, onCheck, showCheerButton, onCheer }
   const hoursLeft = Math.floor((timeUntilMidnight.getTime() - Date.now()) / (1000 * 60 * 60));
   const isUrgent = !isTodayChecked && hoursLeft < 6;
 
-  const fireCount = Math.min(streak.currentStreak, 5);
+  // Generate mock week data based on current streak
+  const generateWeekData = () => {
+    const today = new Date().getDay();
+    const adjustedToday = today === 0 ? 6 : today - 1;
+    const checkedDays = Array(7).fill(false);
+    
+    for (let i = 0; i < Math.min(streak.currentStreak, adjustedToday + 1); i++) {
+      checkedDays[adjustedToday - i] = true;
+    }
+    
+    if (isTodayChecked) {
+      checkedDays[adjustedToday] = true;
+    }
+    
+    return checkedDays;
+  };
 
   return (
     <motion.div
-      className={`p-5 rounded-2xl border-2 transition-all duration-300 ${
-        isUrgent
-          ? 'border-white bg-white/10 pulse-glow'
-          : 'border-white/20 bg-white/5 hover:bg-white/10'
-      }`}
-      whileHover={{ scale: 1.01 }}
-      whileTap={{ scale: 0.99 }}
+      className="bg-white p-5 rounded-2xl shadow-sm border border-charcoal/5"
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.2 }}
     >
-      <div className="flex items-start justify-between mb-3">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <span className="text-3xl">{streak.icon}</span>
+          <span className="text-2xl">{streak.icon}</span>
           <div>
-            <h3 className="text-lg font-heading font-bold text-white uppercase tracking-wide">{streak.name}</h3>
-            <p className="text-xs text-white/50 font-body uppercase tracking-wide">{streak.category}</p>
-          </div>
-        </div>
-        {streak.isPublic && (
-          <span className="text-xs text-white/60 font-body bg-white/10 px-2 py-1 rounded-full">
-            Public
-          </span>
-        )}
-      </div>
-      
-      {streak.description && (
-        <p className="text-sm text-white/70 font-body mb-4 leading-relaxed">{streak.description}</p>
-      )}
-      
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-4">
-          <div className="text-center">
-            <div className="text-2xl font-heading font-bold text-white">{streak.currentStreak}</div>
-            <div className="text-xs text-white/50 font-body">Current</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-heading font-bold text-white/60">{streak.longestStreak}</div>
-            <div className="text-xs text-white/50 font-body">Best</div>
+            <h3 className="text-base font-heading font-semibold text-charcoal">{streak.name}</h3>
+            <p className="text-xs text-charcoal/50 font-body">{streak.category}</p>
           </div>
         </div>
         
-        {fireCount > 0 && (
-          <div className="flex gap-1">
-            {Array.from({ length: fireCount }, (_, i) => (
-              <span key={i} className="flame-animate text-xl" style={{ animationDelay: `${i * 0.1}s` }}>
-                🔥
-              </span>
-            ))}
-          </div>
-        )}
+        {/* Streak Badge */}
+        <div className="flex items-center gap-1.5 bg-coral text-white px-3 py-1.5 rounded-full">
+          <span className="flame-animate">🔥</span>
+          <span className="font-heading font-bold text-sm">{streak.currentStreak}</span>
+        </div>
       </div>
 
+      {/* Week Tracker */}
+      <div className="mb-4">
+        <WeekTracker checkedDays={generateWeekData()} />
+      </div>
+
+      {/* Urgent Warning */}
       {isUrgent && (
-        <div className="mb-3 p-2 bg-white/10 rounded-lg">
-          <p className="text-xs text-white font-body font-semibold">
-            {hoursLeft} hours left to check in!
+        <div className="mb-4 p-3 bg-coral/10 rounded-xl border border-coral/20">
+          <p className="text-sm text-coral font-body font-medium">
+            {hoursLeft} hours left to keep your streak!
           </p>
         </div>
       )}
 
+      {/* Action Buttons */}
       <div className="flex gap-2">
         <motion.button
           onClick={() => onCheck(streak.id)}
           disabled={isTodayChecked}
-          className={`flex-1 py-3 px-4 rounded-xl font-heading font-bold text-sm transition-all duration-200 ${
+          className={`flex-1 py-3 px-4 rounded-xl font-body font-semibold text-sm flex items-center justify-center gap-2 transition-all ${
             isTodayChecked
-              ? 'bg-white/20 text-white/50 cursor-not-allowed'
-              : 'bg-white text-[var(--color-primary)] hover:shadow-lg'
+              ? 'bg-charcoal/5 text-charcoal/40 cursor-not-allowed'
+              : 'bg-coral text-white hover:bg-coral/90'
           }`}
           whileHover={!isTodayChecked ? { scale: 1.02 } : {}}
           whileTap={!isTodayChecked ? { scale: 0.98 } : {}}
         >
-          {isTodayChecked ? 'Done Today' : 'Mark Complete'}
+          <Zap size={16} />
+          {isTodayChecked ? 'Logged today' : 'Log my day'}
         </motion.button>
         
         {showCheerButton && (
           <motion.button
             onClick={onCheer}
-            className="py-3 px-4 rounded-xl bg-white/10 border border-white/20 text-white font-heading font-bold text-sm hover:bg-white/20 transition-all duration-200"
+            className="py-3 px-4 rounded-xl bg-blue/10 text-blue font-body font-semibold text-sm hover:bg-blue/20 transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            🙌 Cheer
+            Cheer
           </motion.button>
         )}
       </div>
