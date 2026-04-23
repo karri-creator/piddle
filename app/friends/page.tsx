@@ -20,94 +20,104 @@ export default function FriendsPage() {
     setNewFriendName('');
   };
 
-  const handleCheer = (friendId: string, streakId: string) => {
-    // In a real app, this would send to backend
-    alert(`You cheered ${friends.find(f => f.id === friendId)?.name} on their streak! 🎉`);
+  const handleCheer = (friendName: string, streakName: string) => {
+    alert(`You cheered ${friendName} on "${streakName}"! 🎉`);
   };
 
   return (
     <main className="min-h-screen bg-[var(--color-bg)]">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <motion.h1
-          className="text-5xl font-heading text-center mb-12 bg-gradient-to-r from-[var(--color-hero)] to-[var(--color-secondary)] bg-clip-text text-transparent"
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-10"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Your Squad 🤝
-        </motion.h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
+            Your Squad
+          </h1>
+          <p className="text-white/70 font-body">
+            Cheer on your friends and keep each other accountable.
+          </p>
+        </motion.div>
 
+        {/* Add Friend Form */}
         <motion.div
-          className="mb-12 bg-white p-8 rounded-2xl shadow-xl border border-gray-100"
+          className="mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-[var(--color-neutral)]">Add a Friend</h2>
-          <form onSubmit={e => { e.preventDefault(); handleAddFriend(); }} className="flex gap-4">
+          <form onSubmit={e => { e.preventDefault(); handleAddFriend(); }} className="flex gap-3">
             <input
               type="text"
               value={newFriendName}
               onChange={e => setNewFriendName(e.target.value)}
-              className="flex-1 p-4 border-2 border-gray-200 rounded-xl focus:border-[var(--color-hero)] focus:outline-none transition-colors"
-              placeholder="Enter friend's name"
+              className="flex-1 p-4 bg-[var(--color-input-bg)] border border-[var(--color-border)] rounded-xl text-white placeholder-white/50 font-body focus:border-white focus:outline-none transition-colors"
+              placeholder="Enter friend&apos;s name"
               required
             />
             <motion.button
               type="submit"
-              className="bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-hero)] text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all duration-200"
+              className="bg-white text-[var(--color-primary)] px-6 py-4 rounded-xl font-heading font-bold hover:shadow-lg transition-all duration-200"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Add Friend 👥
+              Add Friend
             </motion.button>
           </form>
         </motion.div>
 
+        {/* Friends List */}
         <div>
-          <h2 className="text-3xl font-bold mb-8 text-[var(--color-neutral)]">Friends&apos; Streaks</h2>
           {friends.length === 0 ? (
             <motion.div
-              className="text-center py-16 bg-white rounded-2xl shadow-lg border border-gray-100"
+              className="text-center py-12 border-2 border-dashed border-white/20 rounded-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="text-6xl mb-4">👥</div>
-              <p className="text-xl text-gray-600 mb-4">No friends yet?</p>
-              <p className="text-gray-500">Add some friends to cheer on their streaks!</p>
+              <div className="text-5xl mb-4">👥</div>
+              <p className="text-lg text-white/80 font-body mb-2">No friends yet</p>
+              <p className="text-white/50 text-sm font-body">Add friends to cheer on their streaks!</p>
             </motion.div>
           ) : (
-            friends.map(friend => (
-              <motion.div
-                key={friend.id}
-                className="mb-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h3 className="text-2xl font-bold mb-6 text-[var(--color-neutral)]">{friend.name}&apos;s Streaks</h3>
-                {friend.streaks.length === 0 ? (
-                  <p className="text-gray-500 bg-white p-6 rounded-xl shadow">No public streaks yet.</p>
-                ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-6">
-                    {friend.streaks.map(streak => (
-                      <div key={streak.id} className="relative">
-                        <StreakCard streak={streak} onCheck={() => {}} />
-                        <motion.button
-                          onClick={() => handleCheer(friend.id, streak.id)}
-                          className="absolute top-4 right-4 bg-[var(--color-accent)] text-[var(--color-neutral)] p-3 rounded-full shadow-lg hover:bg-yellow-400 transition-colors"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          🙌
-                        </motion.button>
-                      </div>
-                    ))}
+            <div className="space-y-8">
+              {friends.map(friend => (
+                <motion.div
+                  key={friend.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-white text-[var(--color-primary)] flex items-center justify-center font-heading font-bold">
+                      {friend.name.charAt(0).toUpperCase()}
+                    </div>
+                    <h3 className="text-xl font-heading font-bold text-white">{friend.name}</h3>
                   </div>
-                )}
-              </motion.div>
-            ))
+                  
+                  {friend.streaks.length === 0 ? (
+                    <p className="text-white/50 text-sm font-body p-4 border border-white/10 rounded-xl">
+                      No public streaks yet.
+                    </p>
+                  ) : (
+                    <div className="space-y-3">
+                      {friend.streaks.map(streak => (
+                        <StreakCard 
+                          key={streak.id} 
+                          streak={streak} 
+                          onCheck={() => {}} 
+                          showCheerButton
+                          onCheer={() => handleCheer(friend.name, streak.name)}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           )}
         </div>
       </div>

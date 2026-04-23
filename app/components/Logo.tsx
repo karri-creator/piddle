@@ -1,16 +1,35 @@
-export default function Logo() {
+export default function Logo({ variant = 'header' }: { variant?: 'header' | 'hero' }) {
+  const isHero = variant === 'hero';
+  
   return (
-    <div className="flex items-center space-x-3">
-      <div className="relative">
-        <div className="w-10 h-10 bg-[var(--color-hero)] rounded-2xl flex items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
-          <span className="text-[var(--color-surface)] font-bold text-lg">P</span>
-        </div>
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-[var(--color-secondary)] rounded-full" />
+    <div className="inline-flex flex-col items-center">
+      <div className="relative inline-block">
+        <span 
+          className={`font-heading font-bold tracking-tight ${
+            isHero 
+              ? 'text-6xl md:text-7xl text-[var(--color-primary)]' 
+              : 'text-2xl text-[var(--color-primary)]'
+          }`}
+        >
+          Piddle
+        </span>
+        {/* Strikethrough line */}
+        <div 
+          className={`absolute left-0 right-0 bg-white ${
+            isHero 
+              ? 'h-[3px] top-1/2 -translate-y-1/2' 
+              : 'h-[2px] top-1/2 -translate-y-1/2'
+          }`}
+          style={{ 
+            boxShadow: isHero ? '0 1px 2px rgba(0,0,0,0.1)' : 'none'
+          }}
+        />
       </div>
-      <div>
-        <div className="text-2xl font-heading text-[var(--color-neutral)] tracking-tight">Piddle</div>
-        <div className="text-xs uppercase tracking-[0.24em] text-gray-500">Stop Piddling Around!</div>
-      </div>
+      {isHero && (
+        <p className="text-white/80 text-sm md:text-base font-body mt-2 tracking-wide">
+          Stop piddling around. Start building streaks.
+        </p>
+      )}
     </div>
   );
 }

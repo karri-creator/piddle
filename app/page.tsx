@@ -9,7 +9,7 @@ import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 
 const categories = ['Fitness', 'Writing', 'Learning', 'Habit', 'Other'];
-const icons = ['💪', '📚', '🎓', '🔄', '🎯', '🏃', '✍️', '🧠', '🌱', '⭐'];
+const icons = ['🎯', '💪', '📚', '🎓', '🔄', '🏃', '✍️', '🧠', '🌱', '⭐'];
 
 export default function Home() {
   const [streaks, setStreaks] = useState<Streak[]>([]);
@@ -17,7 +17,7 @@ export default function Home() {
     name: '',
     description: '',
     isPublic: false,
-    color: '#3b82f6',
+    color: '#ffffff',
     category: 'Habit',
     icon: '🎯'
   });
@@ -48,10 +48,9 @@ export default function Home() {
           lastChecked: today,
         };
 
-        // Check for milestones
         const milestones = [7, 30, 100];
         if (milestones.includes(current) && current > s.currentStreak) {
-          setMilestoneMessage(`🎉 Amazing! You've hit ${current} days on "${s.name}"!`);
+          setMilestoneMessage(`${current} days on "${s.name}"!`);
           setShowConfetti(true);
           setTimeout(() => setShowConfetti(false), 5000);
         }
@@ -82,126 +81,150 @@ export default function Home() {
     const newStreaks = [...streaks, streak];
     setStreaks(newStreaks);
     saveStreaks(newStreaks);
-    setNewStreak({ name: '', description: '', isPublic: false, color: '#3b82f6', category: 'Habit', icon: '🎯' });
+    setNewStreak({ name: '', description: '', isPublic: false, color: '#ffffff', category: 'Habit', icon: '🎯' });
   };
 
   return (
     <main className="min-h-screen bg-[var(--color-bg)]">
       {showConfetti && <Confetti width={width} height={height} />}
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <motion.h1
-          className="text-5xl font-heading text-center mb-12 bg-[var(--color-surface)] text-[var(--color-secondary)]"
+      
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        {/* Hero Section */}
+        <motion.div
+          className="text-center mb-10"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Stop Piddling Around!
-        </motion.h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
+            Build Your Streak
+          </h1>
+          <p className="text-white/70 font-body">
+            Consistency is key. Start something new today.
+          </p>
+        </motion.div>
+
+        {/* Milestone Celebration */}
         {milestoneMessage && (
           <motion.div
-            className="text-center mb-8 p-6 bg-gradient-to-r from-[var(--color-accent)] to-yellow-300 border-2 border-[var(--color-accent)] rounded-xl shadow-lg bounce-in max-w-md mx-auto"
+            className="text-center mb-8 p-4 border-2 border-white/30 rounded-2xl"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            <p className="text-2xl font-bold text-[var(--color-neutral)]">{milestoneMessage}</p>
+            <div className="text-3xl mb-2">🎉</div>
+            <p className="text-xl font-heading font-bold text-white">{milestoneMessage}</p>
+            <p className="text-white/70 text-sm font-body">Keep the momentum going!</p>
           </motion.div>
         )}
+
+        {/* Create Streak Form */}
         <motion.div
-          className="mb-12 bg-white p-8 rounded-2xl shadow-xl border border-gray-100"
+          className="mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-[var(--color-neutral)]">Start Your Streak</h2>
-          <form onSubmit={e => { e.preventDefault(); handleCreate(); }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={e => { e.preventDefault(); handleCreate(); }} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold mb-2 text-[var(--color-neutral)]">Streak Name</label>
+              <label className="block text-sm font-body font-semibold mb-2 text-white/90">
+                Streak Name
+              </label>
               <input
                 type="text"
                 value={newStreak.name}
                 onChange={e => setNewStreak({...newStreak, name: e.target.value})}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[var(--color-hero)] focus:outline-none transition-colors"
+                className="w-full p-4 bg-[var(--color-input-bg)] border border-[var(--color-border)] rounded-xl text-white placeholder-white/50 font-body focus:border-white focus:outline-none transition-colors"
                 placeholder="e.g., Morning Meditation"
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm font-semibold mb-2 text-[var(--color-neutral)]">Category</label>
-              <select
-                value={newStreak.category}
-                onChange={e => setNewStreak({...newStreak, category: e.target.value})}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[var(--color-hero)] focus:outline-none transition-colors"
-              >
-                {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-              </select>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-body font-semibold mb-2 text-white/90">
+                  Category
+                </label>
+                <select
+                  value={newStreak.category}
+                  onChange={e => setNewStreak({...newStreak, category: e.target.value})}
+                  className="w-full p-4 bg-[var(--color-input-bg)] border border-[var(--color-border)] rounded-xl text-white font-body focus:border-white focus:outline-none transition-colors appearance-none cursor-pointer"
+                >
+                  {categories.map(cat => <option key={cat} value={cat} className="bg-[#A02122] text-white">{cat}</option>)}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-body font-semibold mb-2 text-white/90">
+                  Icon
+                </label>
+                <select
+                  value={newStreak.icon}
+                  onChange={e => setNewStreak({...newStreak, icon: e.target.value})}
+                  className="w-full p-4 bg-[var(--color-input-bg)] border border-[var(--color-border)] rounded-xl text-white font-body text-2xl focus:border-white focus:outline-none transition-colors appearance-none cursor-pointer"
+                >
+                  {icons.map(icon => <option key={icon} value={icon} className="bg-[#A02122]">{icon}</option>)}
+                </select>
+              </div>
             </div>
-            <div className="md:col-span-2">
-              <label className="block text-sm font-semibold mb-2 text-[var(--color-neutral)]">Description</label>
+
+            <div>
+              <label className="block text-sm font-body font-semibold mb-2 text-white/90">
+                Description (optional)
+              </label>
               <textarea
                 value={newStreak.description}
                 onChange={e => setNewStreak({...newStreak, description: e.target.value})}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[var(--color-hero)] focus:outline-none transition-colors resize-none"
+                className="w-full p-4 bg-[var(--color-input-bg)] border border-[var(--color-border)] rounded-xl text-white placeholder-white/50 font-body focus:border-white focus:outline-none transition-colors resize-none"
                 placeholder="What are you committing to?"
-                rows={4}
+                rows={3}
               />
             </div>
-            <div>
-              <label className="block text-sm font-semibold mb-2 text-[var(--color-neutral)]">Icon</label>
-              <select
-                value={newStreak.icon}
-                onChange={e => setNewStreak({...newStreak, icon: e.target.value})}
-                className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-[var(--color-hero)] focus:outline-none transition-colors text-3xl"
-              >
-                {icons.map(icon => <option key={icon} value={icon}>{icon}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold mb-2 text-[var(--color-neutral)]">Accent Color</label>
-              <input
-                type="color"
-                value={newStreak.color}
-                onChange={e => setNewStreak({...newStreak, color: e.target.value})}
-                className="w-full h-16 border-2 border-gray-200 rounded-xl cursor-pointer"
-              />
-            </div>
-            <div className="md:col-span-2 flex items-center space-x-3">
+
+            <div className="flex items-center gap-3">
               <input
                 type="checkbox"
+                id="isPublic"
                 checked={newStreak.isPublic}
                 onChange={e => setNewStreak({...newStreak, isPublic: e.target.checked})}
-                className="w-5 h-5 text-[var(--color-hero)] focus:ring-[var(--color-hero)] border-gray-300 rounded"
+                className="w-5 h-5 rounded border-2 border-white/30 bg-transparent checked:bg-white checked:border-white cursor-pointer"
               />
-              <label className="text-sm font-medium text-[var(--color-neutral)]">Make this streak public (friends can see it)</label>
+              <label htmlFor="isPublic" className="text-sm font-body text-white/80 cursor-pointer">
+                Make public (friends can see and cheer)
+              </label>
             </div>
-            <div className="md:col-span-2">
-              <motion.button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[var(--color-hero)] to-[var(--color-secondary)] text-white py-4 px-8 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-200"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                🚀 Launch This Streak!
-              </motion.button>
-            </div>
+
+            <motion.button
+              type="submit"
+              className="w-full bg-white text-[var(--color-primary)] py-5 px-8 rounded-2xl font-heading font-bold text-xl shadow-lg hover:shadow-xl transition-all duration-200"
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Launch This Streak!
+            </motion.button>
           </form>
         </motion.div>
+
+        {/* Active Streaks */}
         <div>
-          <h2 className="text-3xl font-bold mb-8 text-[var(--color-neutral)]">Your Active Streaks</h2>
+          <h2 className="text-2xl font-heading font-bold mb-6 text-white flex items-center gap-2">
+            <span className="flame-animate">🔥</span>
+            Active Streaks
+          </h2>
+          
           {streaks.length === 0 ? (
             <motion.div
-              className="text-center py-16 bg-white rounded-2xl shadow-lg border border-gray-100"
+              className="text-center py-12 border-2 border-dashed border-white/20 rounded-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="text-6xl mb-4">🎯</div>
-              <p className="text-xl text-gray-600 mb-4">Ready to build some habits?</p>
-              <p className="text-gray-500">Create your first streak above and start your journey!</p>
+              <div className="text-5xl mb-4">🎯</div>
+              <p className="text-lg text-white/80 font-body mb-2">No streaks yet</p>
+              <p className="text-white/50 text-sm font-body">Create your first streak above!</p>
             </motion.div>
           ) : (
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="space-y-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
