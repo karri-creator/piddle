@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Fredoka', 'system-ui', 'sans-serif'],
+        heading: ['Raleway', 'system-ui', 'sans-serif'],
         body: ['Nunito', 'system-ui', 'sans-serif'],
       },
       colors: {
