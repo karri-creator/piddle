@@ -1,4 +1,4 @@
-// File: /Users/karribowman/Desktop/Acclaim App/app/page.tsx
+// File: /Users/karribowman/Desktop/Acclaim App/piddle/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
